@@ -1,0 +1,54 @@
+<form *ngIf="flight">
+
+      <div class="form-group">
+        <label>Id:</label>
+        <input [(ngModel)]="flight.id" name="id" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>From:</label>
+        <input [(ngModel)]="flight.from" name="from"
+               class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>To:</label>
+        <input [(ngModel)]="flight.to" name="to"
+               class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Date:</label>
+        <input [(ngModel)]="flight.date" name="date"
+               class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label>Delayed:</label>
+        <input [(ngModel)]="flight.delayed" name="delayed"
+               class="form-control">
+      </div>
+      <!-- Fügen Sie hier Felder für die weiteren Eigenschaften -->
+      <!-- des Fluges hinzu -->
+
+    <form [formGroup]="editForm">
+      <input formControlName="id">
+      <input formControlName="from">
+      <input formControlName="to">
+      <input formControlName="date">
+      errors: {{editForm.controls['from'].errors | json}}
+      <div class="text-danger" *ngIf="editForm.controls['from'].hasError('minlength')">
+        ...minlength...
+      </div>
+      <div class="text-danger" *ngIf="editForm.controls['from'].hasError('city')">
+        ...city...
+      </div>
+      <div class="text-danger" *ngIf="editForm?.hasError('roundTrip')">
+        ...roundTrip...
+      </div>
+    </form>
+      <button class="btn btn-default" (click)="save()">Save</button>
+
+  </form>
+
+

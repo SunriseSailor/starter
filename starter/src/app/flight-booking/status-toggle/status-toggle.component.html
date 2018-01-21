@@ -1,0 +1,12 @@
+<div class="content">
+  <p>
+    <button
+      class="btn btn-default"
+      *ngIf="!status"
+      (click)="delayed()">Delay</button>
+    <button
+      class="btn btn-default"
+      *ngIf="status"
+      (click)="notDelayed()">Not Delayed</button>
+  </p>
+</div>
